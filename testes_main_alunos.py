@@ -42,32 +42,99 @@ class TestCalculadora(unittest.TestCase):
         self.assertEqual(calculadora_v4(2, 3, '^'), 8)
 
     def teste_operacoes_diversas(self):
-        # Teste divisão por zero operador para todas versões / %
-        self.assertTrue(math.isnan(calculadora(5, 0, '/')))
-        self.assertTrue(math.isnan(calculadora(5, 0, '%')))
+            # Teste divisão por zero operador para todas versões / %
+            # Versão 1
+            self.assertTrue(math.isnan(calculadora(5, 0, '/')))
+            self.assertTrue(math.isnan(calculadora(5, 0, '%')))
+            # Versão 2
+            self.assertTrue(math.isnan(calculadora_v2(5, 0, '/')))
+            self.assertTrue(math.isnan(calculadora_v2(5, 0, '%')))
+            # Versão 3
+            self.assertTrue(math.isnan(calculadora_v3(5, 0, '/')))
+            self.assertTrue(math.isnan(calculadora_v3(5, 0, '%')))
+            # Versão 4
+            self.assertTrue(math.isnan(calculadora_v4(5, 0, '/')))
+            self.assertTrue(math.isnan(calculadora_v4(5, 0, '%')))
 
-        # Teste operador inválido - fazer três testes para todas as versões
-        self.assertTrue(math.isnan(calculadora(2, 3, '$')))
-        self.assertTrue(math.isnan(calculadora(2, 5, '#')))
-        self.assertTrue(math.isnan(calculadora(0, 2, 'qwe')))
+            # Teste operador inválido - fazer três testes para todas as versões
+            # Versão 1
+            self.assertTrue(math.isnan(calculadora(2, 3, '$')))
+            self.assertTrue(math.isnan(calculadora(2, 5, '#')))
+            self.assertTrue(math.isnan(calculadora(0, 2, 'qwe')))
+            # Versão 2
+            self.assertTrue(math.isnan(calculadora_v2(2, 3, '$')))
+            self.assertTrue(math.isnan(calculadora_v2(2, 5, '#')))
+            self.assertTrue(math.isnan(calculadora_v2(0, 2, 'qwe')))
+            # Versão 3
+            self.assertTrue(math.isnan(calculadora_v3(2, 3, '$')))
+            self.assertTrue(math.isnan(calculadora_v3(2, 5, '#')))
+            self.assertTrue(math.isnan(calculadora_v3(0, 2, 'qwe')))
+            # Versão 4
+            self.assertTrue(math.isnan(calculadora_v4(2, 3, '$')))
+            self.assertTrue(math.isnan(calculadora_v4(2, 5, '#')))
+            self.assertTrue(math.isnan(calculadora_v4(0, 2, 'qwe')))
 
-        # Teste números de virgula flutuante - fazer três testes para todas as versões
-        self.assertAlmostEqual(calculadora(2.5, 1.5, '+'), 4.0)
-        self.assertAlmostEqual(calculadora(4.5, 1.5, '-'), 3.0)
-        self.assertAlmostEqual(calculadora(5.5, 1.5, '*'), 8.25)
+            # Teste números de virgula flutuante - fazer três testes para todas as versões
+            # Versão 1
+            self.assertAlmostEqual(calculadora(2.5, 1.5, '+'), 4.0)
+            self.assertAlmostEqual(calculadora(4.5, 1.5, '-'), 3.0)
+            self.assertAlmostEqual(calculadora(5.5, 1.5, '*'), 8.25)
+            # Versão 2
+            self.assertAlmostEqual(calculadora_v2(2.5, 1.5, '+'), 4.0)
+            self.assertAlmostEqual(calculadora_v2(4.5, 1.5, '-'), 3.0)
+            self.assertAlmostEqual(calculadora_v2(5.5, 1.5, '*'), 8.25)
+            # Versão 3
+            self.assertAlmostEqual(calculadora_v3(2.5, 1.5, '+'), 4.0)
+            self.assertAlmostEqual(calculadora_v3(4.5, 1.5, '-'), 3.0)
+            self.assertAlmostEqual(calculadora_v3(5.5, 1.5, '*'), 8.25)
+            # Versão 4
+            self.assertAlmostEqual(calculadora_v4(2.5, 1.5, '+'), 4.0)
+            self.assertAlmostEqual(calculadora_v4(4.5, 1.5, '-'), 3.0)
+            self.assertAlmostEqual(calculadora_v4(5.5, 1.5, '*'), 8.25)
 
-        # Teste números negativos - fazer 3 testes para todas as versões
-        self.assertEqual(calculadora(-2, 3, '*'), -6)
+            # Teste números negativos - fazer 3 testes para todas as versões
+            # Versão 1 
+            self.assertEqual(calculadora(-2, 3, '*'), -6)
+            self.assertEqual(calculadora(-5, -2, '+'), -7)
+            self.assertEqual(calculadora(-4, 2, '-'), -6)
+            # Versão 2
+            self.assertEqual(calculadora_v2(-2, 3, '*'), -6)
+            self.assertEqual(calculadora_v2(-5, -2, '+'), -7)
+            self.assertEqual(calculadora_v2(-4, 2, '-'), -6)
+            # Versão 3
+            self.assertEqual(calculadora_v3(-2, 3, '*'), -6)
+            self.assertEqual(calculadora_v3(-5, -2, '+'), -7)
+            self.assertEqual(calculadora_v3(-4, 2, '-'), -6)
+            # Versão 4
+            self.assertEqual(calculadora_v4(-2, 3, '*'), -6)
+            self.assertEqual(calculadora_v4(-5, -2, '+'), -7)
+            self.assertEqual(calculadora_v4(-4, 2, '-'), -6)
 
-        # Teste números negativos com divisão e módulo, testar para todas as versões
-        self.assertTrue(calculadora(-6, 3, '/'), -2.0)
-        self.assertTrue(calculadora(-7, 3, '%'), 2.0)
+            # Teste números negativos com divisão e módulo, testar para todas as versões
+            # Versão 1
+            self.assertEqual(calculadora(-6, 3, '/'), -2.0)
+            self.assertEqual(calculadora(-7, 3, '%'), 2.0)
+            # Versão 2
+            self.assertEqual(calculadora_v2(-6, 3, '/'), -2.0)
+            self.assertEqual(calculadora_v2(-7, 3, '%'), 2.0)
+            # Versão 3
+            self.assertEqual(calculadora_v3(-6, 3, '/'), -2.0)
+            self.assertEqual(calculadora_v3(-7, 3, '%'), 2.0)
+            # Versão 4
+            self.assertEqual(calculadora_v4(-6, 3, '/'), -2.0)
+            self.assertEqual(calculadora_v4(-7, 3, '%'), 2.0)
 
-        # Teste números negativos com exponenciação, testar para todas as versões
-        self.assertEqual(calculadora(-2, 3, '^'), -8)
+            # Teste números negativos com exponenciação, testar para todas as versões
+            self.assertEqual(calculadora(-2, 3, '^'), -8)
+            self.assertEqual(calculadora_v2(-2, 3, '^'), -8)
+            self.assertEqual(calculadora_v3(-2, 3, '^'), -8)
+            self.assertEqual(calculadora_v4(-2, 3, '^'), -8)
 
-        # Teste números negativos com exponenciação de zero, testar para todas as versões
-        self.assertEqual(calculadora(0, 3, '^'), 0)
+            # Teste números negativos com exponenciação de zero, testar para todas as versões
+            self.assertEqual(calculadora(0, 3, '^'), 0)
+            self.assertEqual(calculadora_v2(0, 3, '^'), 0)
+            self.assertEqual(calculadora_v3(0, 3, '^'), 0)
+            self.assertEqual(calculadora_v4(0, 3, '^'), 0)
 
 
 if __name__ == '__main__':
